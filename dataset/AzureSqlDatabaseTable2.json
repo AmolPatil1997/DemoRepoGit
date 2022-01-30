@@ -1,0 +1,26 @@
+{
+	"name": "AzureSqlDatabaseTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Job_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Job_name",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Job"
+		}
+	}
+}
