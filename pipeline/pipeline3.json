@@ -22,9 +22,18 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": {
+								"value": ".csv",
+								"type": "Expression"
+							}
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -37,9 +46,9 @@
 									"physicalType": "int"
 								},
 								"sink": {
-									"name": "Job_id",
 									"type": "Int32",
-									"physicalType": "int"
+									"physicalType": "int",
+									"ordinal": 1
 								}
 							},
 							{
@@ -49,9 +58,9 @@
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "Job_name",
 									"type": "String",
-									"physicalType": "nvarchar"
+									"physicalType": "nvarchar",
+									"ordinal": 2
 								}
 							}
 						],
@@ -70,7 +79,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlDatabaseTable2",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
 				]
