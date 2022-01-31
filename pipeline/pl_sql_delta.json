@@ -32,7 +32,8 @@
 						"linkedServiceName": {
 							"referenceName": "AzureDataLakeStorage1",
 							"type": "LinkedServiceReference"
-						}
+						},
+						"path": "container1/directory_1"
 					},
 					"translator": {
 						"type": "TabularTranslator",
