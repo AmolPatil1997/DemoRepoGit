@@ -44,8 +44,8 @@
 									"type": "Int32"
 								},
 								"sink": {
-									"name": "Job_id",
-									"type": "Int32"
+									"name": "job_num",
+									"type": "Int"
 								}
 							},
 							{
@@ -54,8 +54,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Job_name",
-									"type": "String"
+									"name": "job_name1",
+									"type": "string"
 								}
 							}
 						]
