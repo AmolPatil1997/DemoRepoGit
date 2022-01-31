@@ -1,0 +1,73 @@
+{
+	"name": "pl_sql_delta",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data2",
+				"description": "Copying data ",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureDatabricksDeltaLakeSink",
+						"importSettings": {
+							"type": "AzureDatabricksDeltaLakeImportCommand"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "JCODE",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "Job_id",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "JNAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Job_name",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SqlServerTable2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureDatabricksDeltaLakeDataset2",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

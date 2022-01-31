@@ -1,0 +1,25 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDatabricksDeltaLake2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "sql_schema",
+			"table": "delta_table"
+		},
+		"schema": [
+			{
+				"name": "job_num",
+				"type": "integer"
+			},
+			{
+				"name": "job_name1",
+				"type": "string"
+			}
+		]
+	}
+}
