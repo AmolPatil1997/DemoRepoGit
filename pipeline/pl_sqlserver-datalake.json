@@ -53,9 +53,8 @@
 									"physicalType": "int"
 								},
 								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 1
+									"name": "id",
+									"physicalType": "String"
 								}
 							},
 							{
@@ -65,9 +64,8 @@
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 2
+									"name": "name",
+									"physicalType": "String"
 								}
 							}
 						],
