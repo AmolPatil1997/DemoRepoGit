@@ -87,7 +87,13 @@
 				"outputs": [
 					{
 						"referenceName": "DelimitedText2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"time": {
+								"value": "@variables('time')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
