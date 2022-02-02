@@ -1,0 +1,152 @@
+{
+	"name": "pl_sqlserver-datalake_delta",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data2",
+				"description": "Copying data ",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": {
+								"value": ".csv",
+								"type": "Expression"
+							}
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "JCODE",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "id",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "JNAME",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "name",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SqlServerTable2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference",
+						"parameters": {
+							"time": {
+								"value": "@variables('time')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			},
+			{
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Copy data2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/bb00758844@techmahindra.com/Python_poc2",
+					"baseParameters": {
+						"filename": {
+							"value": "@string(concat('file_',variables('time')))",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "time",
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd_HH:MM:ss')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"time": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
