@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(sample_file,utcnow())",
+					"type": "Expression"
+				},
 				"folderPath": "directory_1",
 				"fileSystem": "container1"
 			},

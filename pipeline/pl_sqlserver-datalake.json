@@ -85,6 +85,12 @@
 				]
 			}
 		],
+		"variables": {
+			"Samp_1": {
+				"type": "String",
+				"defaultValue": "Sample"
+			}
+		},
 		"annotations": []
 	}
 }
