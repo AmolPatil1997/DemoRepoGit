@@ -1,6 +1,26 @@
 {
 	"name": "pipeline_test",
 	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "time",
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd_HH:MM:ss')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"time": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
