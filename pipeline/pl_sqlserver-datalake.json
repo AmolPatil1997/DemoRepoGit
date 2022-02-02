@@ -85,8 +85,8 @@
 				]
 			},
 			{
-				"name": "Python1",
-				"type": "DatabricksSparkPython",
+				"name": "Notebook1",
+				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
 						"activity": "Copy data2",
@@ -103,6 +103,9 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/bb00758844@techmahindra.com/Python_poc2"
+				},
 				"linkedServiceName": {
 					"referenceName": "ls_AzureDatabricks1",
 					"type": "LinkedServiceReference"
