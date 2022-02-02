@@ -103,7 +103,7 @@
 				"typeProperties": {
 					"variableName": "time",
 					"value": {
-						"value": "@convertTimeZone(utcNow(),'UTC','India Standard Time')",
+						"value": "@formatDateTime(convertTimeZone(utcNow(),'UTC','India Standard Time'),'yyyy-MM-dd__HH_MM_ss')",
 						"type": "Expression"
 					}
 				}
