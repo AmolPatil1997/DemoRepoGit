@@ -120,7 +120,7 @@
 					"notebookPath": "/Users/bb00758844@techmahindra.com/Python_poc2",
 					"baseParameters": {
 						"filename": {
-							"value": "@string(concat('file_',formatDateTime(utcNow(),'yyyy-MM-dd_HH')))",
+							"value": "@string(concat('file_',variables('time')))",
 							"type": "Expression"
 						}
 					}
