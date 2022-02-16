@@ -45,30 +45,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "JCODE",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"name": "id",
-									"physicalType": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "JNAME",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"name": "name",
-									"physicalType": "String"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
