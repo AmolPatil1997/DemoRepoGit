@@ -20,7 +20,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "tblJob"
+			"table": "Call_record_Table"
 		}
 	}
 }
