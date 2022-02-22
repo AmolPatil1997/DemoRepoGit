@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/bb00758844@techmahindra.com/CVS_to_Parquet_Notebook"
+					"notebookPath": "/Users/bb00758844@techmahindra.com/CSV_to_Parquet_Notebook"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_csv_to_parquet_using_Databricks",
