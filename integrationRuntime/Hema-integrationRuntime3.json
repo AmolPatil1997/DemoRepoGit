@@ -1,0 +1,6 @@
+{
+	"name": "Hema-integrationRuntime3",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
